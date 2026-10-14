@@ -1,32 +1,37 @@
-KOSHARI STARTER KIT - CSCE 3104, Fall 2026
-==========================================
-Give koshari.py and demo.ksh to students at S4, with A1.
+Koshari - CSCE 3104
+Assignments 1 and 2
 
-IT RUNS AS GIVEN - verified:
-    $ python3 koshari.py            ->  7
-    $ python3 koshari.py demo.ksh   ->  14
+Requires Python 3.7 or later. No extra packages are needed.
+Run these commands from the project folder.
 
-It is deliberately incomplete. Every decision point is marked:
-    # TODO(A1)  parser accepts two statement forms. Extend it.
-    # TODO(A2)  Env is a flat dict - cannot express scope at all.
-    # TODO(A3)  no types. Every value is a Python float.
-    # TODO(A4)  is operand order guaranteed? what does 1/0 do?
-    # TODO(A5)  no procedures.
-    # TODO(A6)  no closures; nothing runs in two directions.
+Basic examples:
+    python koshari.py                                      -> 7
+    python koshari.py demo.ksh                             -> 14
 
-IT FAILS WHERE THE ASSIGNMENTS ASK - verified:
-    unbound name  ->  NameError: unbound: nope
-    1/0           ->  ZeroDivisionError: float division by zero
-A4 asks students to REPLACE both with a designed mechanism. Leaving
-the Python exception in place is a legitimate answer ONLY if
-defended - it means "my language inherits its host's failure model",
-which has a real cost worth naming.
+A2 scoping example:
+    python koshari.py --scope static examples/a2_scope.ksh  -> 10
+    python koshari.py --scope dynamic examples/a2_scope.ksh -> 20
 
-STUDENTS MAY REPLACE IT ENTIRELY, in any language. The one
-prohibition is a PARSER GENERATOR for A1 - writing the parser by
-hand is the point of A1.
+Static scoping is the default. The --scope option changes the rule
+used to find variables outside a function's local frame.
 
-WHY PYTHON: everyone in the room can read it, so the starter kit
-does not become a second subject. It is not an endorsement of
-Python as an implementation language, and students who rewrite it
-in C, Haskell or Java should be encouraged.
+A1 syntax checks:
+    python koshari.py --stage a1 --parse-only examples/a1_sample1.ksh
+    python koshari.py --stage a1 --parse-only examples/a1_sample2.ksh
+    python koshari.py --stage a1 --parse-only examples/a1_sample3.ksh
+
+All three print "Syntax OK". Sample 3 uses undeclared variables,
+so it is a syntax example rather than a complete executable program.
+The two a1_rejected examples produce syntax errors.
+
+Other examples:
+    examples/a1_features.ksh   - assignments, comparisons, and negation
+    examples/a2_blocks.ksh     - block scopes and shadowing
+    examples/a2_assignment.ksh - assignment under both scoping rules
+
+Tests:
+    python -m unittest -v
+
+Functions currently have no parameters or returned values.
+Type checking and the remaining procedure features belong to later
+assignments.

@@ -1,3 +1,4 @@
+# AI-generated example; see examples/README.md.
 let x = 10;
 {
     let x = 20;

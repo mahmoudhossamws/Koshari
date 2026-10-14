@@ -1,6 +1,10 @@
 Koshari - CSCE 3104
 Assignments 1 and 2
 
+AI assistance:
+    AI assistance was used to prepare additional examples.
+    examples/README.md records the sources of the example files.
+
 Requires Python 3.7 or later. No extra packages are needed.
 Run these commands from the project folder.
 

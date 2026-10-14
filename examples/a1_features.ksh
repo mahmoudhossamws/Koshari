@@ -1,3 +1,4 @@
+# AI-generated example; see examples/README.md.
 # Exercises all assignment operators, comparisons, and negation.
 let x = 10;
 x = 12;

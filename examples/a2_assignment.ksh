@@ -1,3 +1,4 @@
+# AI-generated example; see examples/README.md.
 # The lookup chain also determines which variable assignment changes.
 let x = 10;
 function increment() {
